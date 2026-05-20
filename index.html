@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CipherLock — Password Encryptor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <canvas id="matrix-bg"></canvas>
+
+  <div class="scanline"></div>
+
+  <header>
+    <div class="logo-wrap">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">CIPHER<span class="logo-accent">LOCK</span></span>
+    </div>
+    <div class="header-status">
+      <span class="status-dot"></span>
+      <span class="status-text">SYSTEM SECURE</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Conditions Panel -->
+    <section class="conditions-panel">
+      <div class="panel-label">// SECURITY PROTOCOLS</div>
+      <div class="conditions-grid">
+        <div class="condition-chip" id="cond-length">
+          <span class="chip-icon">◈</span> Min 8 characters
+        </div>
+        <div class="condition-chip" id="cond-weak">
+          <span class="chip-icon">◈</span> Only letters = Weak
+        </div>
+        <div class="condition-chip" id="cond-medium">
+          <span class="chip-icon">◈</span> Letters + Numbers = Medium
+        </div>
+        <div class="condition-chip" id="cond-strong">
+          <span class="chip-icon">◈</span> Letters + Numbers + Symbols = Strong
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Card -->
+    <div class="card">
+      <div class="card-header">
+        <span class="terminal-prompt">root@cipherlock:~$</span>
+        <span class="blink-cursor">█</span>
+      </div>
+
+      <!-- Input Section -->
+      <div class="input-section">
+        <label class="input-label">[ PASSWORD INPUT ]</label>
+        <div class="input-wrapper">
+          <input
+            type="password"
+            id="password-input"
+            class="password-field"
+            placeholder="Enter password to encrypt..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="toggle-btn" id="toggle-vis" title="Show/Hide">
+            <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Strength Meter -->
+        <div class="strength-section">
+          <div class="strength-bar-track">
+            <div class="strength-bar-fill" id="strength-bar"></div>
+          </div>
+          <div class="strength-status" id="strength-status">
+            <span class="strength-label" id="strength-label">AWAITING INPUT</span>
+            <span class="strength-message" id="strength-message">Enter a password to analyze</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button class="btn btn-primary" id="encrypt-btn">
+          <span class="btn-icon">⬡</span>
+          ENCRYPT PASSWORD
+        </button>
+        <button class="btn btn-secondary" id="generate-btn">
+          <span class="btn-icon">⟳</span>
+          GENERATE SECURE
+        </button>
+      </div>
+
+      <!-- Output Section -->
+      <div class="output-section" id="output-section">
+        <label class="input-label">[ ENCRYPTED HASH OUTPUT ]</label>
+        <div class="output-wrapper">
+          <div class="output-box" id="output-box">
+            <span class="output-placeholder">// Encrypted hash will appear here...</span>
+          </div>
+          <button class="copy-btn" id="copy-btn" title="Copy to clipboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
+        <div class="hash-info">
+          <span class="hash-tag">PBKDF2-HMAC-SHA256</span>
+          <span class="hash-tag">260,000 ITERATIONS</span>
+          <span class="hash-tag">SALT: 128-BIT</span>
+        </div>
+      </div>
+
+      <!-- Loading Overlay -->
+      <div class="loading-overlay" id="loading-overlay">
+        <div class="loader-wrap">
+          <div class="hex-loader">
+            <div class="hex h1"></div>
+            <div class="hex h2"></div>
+            <div class="hex h3"></div>
+          </div>
+          <div class="loader-text" id="loader-text">ENCRYPTING...</div>
+          <div class="loader-sub">Running PBKDF2-HMAC-SHA256</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+      <span class="toast-icon">✓</span>
+      <span class="toast-msg">Hash copied to clipboard!</span>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-line"></div>
+    <p class="footer-text">
+      Built with <span class="accent">Python Flask</span> &amp; <span class="accent">Cybersecurity Concepts</span>
+      &nbsp;·&nbsp; PBKDF2 · SHA-256 · Secure Random
+    </p>
+    <p class="footer-sub">No passwords are stored. All encryption happens server-side per request.</p>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
