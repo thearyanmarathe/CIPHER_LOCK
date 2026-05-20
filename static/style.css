@@ -589,3 +589,127 @@ footer {
   .toast { right: 1rem; left: 1rem; }
   .conditions-grid { flex-direction: column; }
 }
+
+/* ===== HOW IT WORKS ===== */
+.how-it-works {
+  background: rgba(0,229,255,0.04);
+  border: 1px solid rgba(0,229,255,0.15);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+}
+
+.steps-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 0.8rem 0;
+}
+
+.step {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: rgba(0,229,255,0.06);
+  border: 1px solid rgba(0,229,255,0.12);
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+}
+
+.step-text {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+.step-arrow {
+  color: var(--cyan);
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
+
+.how-note {
+  font-size: 0.7rem;
+  color: var(--green-dim);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  border-left: 2px solid var(--green);
+  padding-left: 0.8rem;
+}
+
+/* ===== TIP BOX ===== */
+.tip-box {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  background: rgba(0,255,136,0.04);
+  border: 1px solid rgba(0,255,136,0.12);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  margin-top: 0.8rem;
+}
+
+.tip-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+.tip-text {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.tip-text strong { color: var(--green); }
+
+/* ===== OUTPUT BOX large text ===== */
+.output-box {
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px !important;
+}
+
+.output-placeholder {
+  font-size: 0.72rem !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ===== PRIVACY NOTICE ===== */
+.privacy-notice {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  background: rgba(255, 204, 0, 0.04);
+  border: 1px solid rgba(255, 204, 0, 0.2);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.8rem;
+  animation: fadeSlideIn 0.4s ease;
+}
+
+.privacy-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+.privacy-text {
+  font-size: 0.72rem;
+  color: rgba(255, 204, 0, 0.75);
+  line-height: 1.6;
+}
+
+.privacy-text strong {
+  color: #ffcc00;
+  display: block;
+  margin-bottom: 0.15rem;
+}
